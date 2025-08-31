@@ -6,25 +6,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Todo List App</title>
   <link rel="stylesheet" href="./styles/index.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
 </head>
 
 <body>
 
-  <main id="app">
-    <div id="form">
-      <form>
+  <div id="form">
+    <form>
+      <div class="form-text">
         <h1>Todo List App</h1>
         <h2>Start inserting tasks to fill the list</h2>
-        <input type="text" name="taskInput" id="taskInput" required placeholder="Type your task here">
-        <button type="submit">Submit Task</button>
-        <!-- <button class="search-btn" type="button">Search for a task</button> -->
-      </form>
-    </div>
-    <div id="list">
-      <h2>Your tasks here:</h2>
-      <ul id="tasks">Type a task here</ul>
-    </div>
-  </main>
+        <p>Tasks will appear at the right side of your screen.</p>
+      </div>
+      <div class="select-category">
+        <label for="categories">Select a category:</label>
+        <select name="categories" id="categories" required>
+          <option value="" selected>Select an option</option>
+          <option value="Work">Work</option>
+          <option value="School">School</option>
+          <option value="Food">Food</option>
+          <!-- Future feature -->
+          <!-- <option value="addCategory">Add new Category</option> -->
+        </select>
+      </div>
+      <div class="categoryForm">
+        <label for="categoryInput">Enter New category:</label>
+        <input type="text" name="categoryInput" id="categoryInput">
+        <button class="newCategorySubmit">Enter New Category</button>
+      </div>
+      <div class="taskName">
+        <label for="taskInput">Enter the task name here:</label>
+        <input type="text" name="taskInput" id="taskInput" required>
+      </div>
+      <button type="submit">Submit Task</button>
+      <!-- <button class="search-btn" type="button">Search for a task</button> -->
+    </form>
+  </div>
+  <div id="list">
+    <ul id="tasks">
+      <!-- <li class="list-item">
+        <span class="category">Food</span>
+        <span class="task">Buy Food</span>
+        <i class="ph ph-x-circle"></i>
+      </li> -->
+    </ul>
+  </div>
 
   <script src="./scripts/script.js"></script>
 </body>
