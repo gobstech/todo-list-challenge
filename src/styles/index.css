@@ -120,16 +120,23 @@ body {
 
     & .list-item {
       position: relative;
-      display: block;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
       margin: 0 auto;
-      padding: 0.2rem 0 0 0.5rem;
-      height: 32px;
+      padding: 0.5rem;
+      /* height: 32px; */
       background: rebeccapurple;
       color: white;
       border-radius: 8px;
       width: min(200px, 100vw);
       margin-block: 0.5rem;
       transition: box-shadow 0.3s ease-out;
+
+      & .category {
+        font-size: 12px;
+        font-style: italic;
+      }
 
       &:hover {
         box-shadow: 4px 2px 8px rgba(0, 0, 0, 0.4);

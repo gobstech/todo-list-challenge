@@ -23,16 +23,19 @@
       </div>
       <div class="select-category">
         <label for="categories">Select a category:</label>
-        <select name="categories" id="categories">
+        <select name="categories" id="categories" required>
           <option value="" selected>Select an option</option>
-          <option value="option1">option 1</option>
-          <option value="addCategory">Add new Category</option>
+          <option value="Work">Work</option>
+          <option value="School">School</option>
+          <option value="Food">Food</option>
+          <!-- Future feature -->
+          <!-- <option value="addCategory">Add new Category</option> -->
         </select>
       </div>
       <div class="categoryForm">
         <label for="categoryInput">Enter New category:</label>
         <input type="text" name="categoryInput" id="categoryInput">
-        <button type="submit" class="newCategorySubmit">Enter New Category</button>
+        <button class="newCategorySubmit">Enter New Category</button>
       </div>
       <div class="taskName">
         <label for="taskInput">Enter the task name here:</label>
@@ -43,7 +46,13 @@
     </form>
   </div>
   <div id="list">
-    <ul id="tasks"></ul>
+    <ul id="tasks">
+      <!-- <li class="list-item">
+        <span class="category">Food</span>
+        <span class="task">Buy Food</span>
+        <i class="ph ph-x-circle"></i>
+      </li> -->
+    </ul>
   </div>
 
   <script src="./scripts/script.js"></script>
