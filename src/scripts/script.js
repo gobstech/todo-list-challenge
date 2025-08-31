@@ -1,6 +1,22 @@
 // Get the variables from HTML
 const form = document.querySelector("form");
 const taskList = document.querySelector("#tasks");
+const selectCategory = document.getElementById("categories");
+const categoryForm = document.querySelector(".categoryForm");
+
+console.log(categoryForm);
+
+console.log(selectCategory);
+
+selectCategory.onchange = (e) => {
+  console.log(e.target.value);
+
+  if (e.target.value === "addCategory") {
+    categoryForm.classList.add("active");
+    return;
+  }
+  categoryForm.classList.remove("active");
+};
 
 const tasks = [];
 // const tasks = ["Task 1", "Task 2"];

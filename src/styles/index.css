@@ -37,28 +37,74 @@ body {
     background: inherit;
 
     & form {
-      & #taskInput {
-        display: block;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      & #taskInput,
+      #categoryInput {
         all: unset;
         margin-block: 0.5rem 0.25rem;
         background-color: #e7e7e7;
         color: black;
         padding: 0 0.4rem;
-        width: 100%;
-        font-size: 16px;
+        width: 80%;
+        font-size: 14px;
         border-radius: 4px;
         height: 32px;
       }
 
-      & button {
+      & .select-category {
+        margin-block: 1rem 0;
+      }
+
+      & .select-category label,
+      .taskName label {
+        color: white;
+      }
+
+      & .categoryForm {
+        display: none;
+
+        &.active {
+          display: flex;
+          flex-direction: column;
+
+          & label {
+            color: white;
+          }
+        }
+      }
+
+      & select {
+        width: calc(80% + 1rem);
+        outline: none;
+        font-size: 14px;
+        border-radius: 4px;
+        margin-block: 0.5rem 0.25rem;
+        display: block;
+        background-color: #e7e7e7;
+        color: black;
+        padding: 0 0.4rem;
+        height: 32px;
+      }
+
+      & button,
+      .newCategorySubmit {
         all: unset;
-        background: rgba(0, 0, 0, 0.5);
+        display: block;
+        background: rgba(0, 0, 0, 0.4);
         color: white;
         padding: 0 0.4rem;
         border-radius: 4px;
         cursor: pointer;
         height: 32px;
         margin-block: 0.25rem 0;
+        width: fit-content;
+
+        &:hover {
+          background: black;
+          box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+        }
       }
     }
   }
@@ -83,6 +129,12 @@ body {
       border-radius: 8px;
       width: min(200px, 100vw);
       margin-block: 0.5rem;
+      transition: box-shadow 0.3s ease-out;
+
+      &:hover {
+        box-shadow: 4px 2px 8px rgba(0, 0, 0, 0.4);
+        transition: box-shadow 0.3s ease-in;
+      }
 
       & i {
         position: absolute;

@@ -16,10 +16,28 @@
 
   <div id="form">
     <form>
-      <h1>Todo List App</h1>
-      <h2>Start inserting tasks to fill the list</h2>
-      <p>Tasks will appear at the right side of your screen.</p>
-      <input type="text" name="taskInput" id="taskInput" required placeholder="Type your task here">
+      <div class="form-text">
+        <h1>Todo List App</h1>
+        <h2>Start inserting tasks to fill the list</h2>
+        <p>Tasks will appear at the right side of your screen.</p>
+      </div>
+      <div class="select-category">
+        <label for="categories">Select a category:</label>
+        <select name="categories" id="categories">
+          <option value="" selected>Select an option</option>
+          <option value="option1">option 1</option>
+          <option value="addCategory">Add new Category</option>
+        </select>
+      </div>
+      <div class="categoryForm">
+        <label for="categoryInput">Enter New category:</label>
+        <input type="text" name="categoryInput" id="categoryInput">
+        <button type="submit" class="newCategorySubmit">Enter New Category</button>
+      </div>
+      <div class="taskName">
+        <label for="taskInput">Enter the task name here:</label>
+        <input type="text" name="taskInput" id="taskInput" required>
+      </div>
       <button type="submit">Submit Task</button>
       <!-- <button class="search-btn" type="button">Search for a task</button> -->
     </form>
