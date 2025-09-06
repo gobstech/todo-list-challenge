@@ -25,20 +25,7 @@ function createTask(taskName, category) {
 }
 
 // Create tasks array
-const tasks = [
-  {
-    name: "Do Homework",
-    category: "School",
-  },
-  {
-    name: "Buy Food",
-    category: "Food",
-  },
-  {
-    name: "Finish Work Task",
-    category: "Work",
-  },
-];
+const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
 // Test each of the tasks inside the array
 tasks.forEach((task) => {
@@ -46,7 +33,16 @@ tasks.forEach((task) => {
 });
 
 // Create categories array
-const categories = ["Work", "School", "Home"];
+// Create categories array and store/retrieve from localStorage
+let categories = JSON.parse(localStorage.getItem("categories")) || [
+  "Work",
+  "School",
+  "Home",
+];
+// Save categories to localStorage if not already present
+if (!localStorage.getItem("categories")) {
+  localStorage.setItem("categories", JSON.stringify(categories));
+}
 
 renderTasks();
 
@@ -61,10 +57,8 @@ function renderCategories() {
 
 // Function responsible for rendering tasks
 function renderTasks() {
-  // Loops around every item and set them into Local Storage
-  tasks.forEach((task, index) => {
-    localStorage.setItem(`Task ${index + 1}`, JSON.stringify(task));
-  });
+  // Store the entire tasks array in localStorage
+  localStorage.setItem("tasks", JSON.stringify(tasks));
   taskList.textContent = "";
 
   // Loops on each existing task inside the array
@@ -96,6 +90,7 @@ function renderTasks() {
     // Adds icon and icons class
     i.classList.add("ph");
     i.classList.add("ph-x-circle");
+    i.setAttribute("data-index", index); // Set data-index on the icon
     console.log(index);
     taskList.append(li);
     li.append(i);
@@ -119,8 +114,8 @@ form.addEventListener("submit", (e) => {
 // This function removes the taskList from the list display and from the localStorage
 taskList.addEventListener("click", (e) => {
   console.log(e.target.closest("i"));
-  const index = Number(e.target.closest("i").getAttribute("data-index"));
+  let index = Number(e.target.closest("i").getAttribute("data-index"));
   tasks.splice(index, 1);
-  localStorage.clear();
+  localStorage.setItem("tasks", JSON.stringify(tasks));
   renderTasks();
 });
